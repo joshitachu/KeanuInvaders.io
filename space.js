@@ -195,7 +195,7 @@ function moveShip(e) {
         if (e.code == "KeyR") {
             location.reload();
         } else if (e.code == "KeyH") {
-            window.location.href = "/"; // Adjust URL as needed
+            window.location.href = "/index"; // Adjust URL as needed
         }
         return;
     }
