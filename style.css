@@ -1,0 +1,105 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-image: url(https://xsquare.net/keanu/wp-content/uploads/2024/03/bg.gif);
+    background-size: contain;
+    
+    
+}
+
+#board {
+    background-color: black;
+}
+
+
+h1{
+    color: white;
+}
+
+
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.intro h2, .features h2, .cta h2 {
+    color: #e6e6e6;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.intro p, .features li, .cta p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.features li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.features li::before {
+    content: '▶';
+    color: #ff9900;
+    position: absolute;
+    left: 0;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #ff9900;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #ffcc66;
+}
+footer {
+    background-color: #080; /* Dark green */
+    color: #0f0; /* Bright green */
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #0f0; /* Bright green */
+    text-decoration: none;
+    margin: 0 100px; /* Increased spacing */
+    font-size: 32px; /* Increased font size */
+    display: inline-block; /* Ensures each link takes its own line */
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style the icons */
+footer i {
+    color: #0f0; /* Bright green */
+    font-size: 36px; /* Increased font size */
+    margin-right: 20px; /* Increased spacing between icon and text */
+}

@@ -1,0 +1,59 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+    background-size: cover;
+    flex-direction: column;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    /* Dark, gray-themed gradient for a super dark look */
+    background: linear-gradient(
+        0deg,
+        #111 0%, /* Almost black, for the bottom */
+        #222 50%, /* Dark gray in the middle */
+        #111 100% /* Returning to almost black at the top */
+    );
+    color: #0f0; /* Keeping text in neon green for contrast */
+}
+
+#board {
+    /* Adjust your board styling here, if needed */
+    background-image: url("360_F_206144911_YMXoTjdiJtItcguhyRLyotiZnJ2wkoa9.jpg");
+    background-size: cover; /* Ensure the background covers the element */
+}
+
+h1 {
+    color: #0f0; /* Neon green, for that Matrix digital text look */
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0; /* Glow effect */
+}
+
+/* Optional: Flickering effect for the h1 tag to add dynamism */
+@keyframes flicker {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+h1 {
+    animation: flicker 1s infinite;
+}
+
+
+#gameContainer {
+    position: relative;
+    width: 512px; /* Adjust based on your game's canvas size */
+    height: 512px; /* Adjust based on your game's canvas size */
+}
+#gameOverScreen {
+   position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+}
+
+#gameButtons {
+    display: none; /* Hidden initially */
+    margin-top: 20px;
+}
