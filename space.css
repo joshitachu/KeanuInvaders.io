@@ -40,7 +40,6 @@ h1 {
     animation: flicker 1s infinite;
 }
 
-
 #gameContainer {
     position: relative;
     width: 512px; /* Adjust based on your game's canvas size */
@@ -48,12 +47,96 @@ h1 {
 }
 #gameOverScreen {
    position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
 #gameButtons {
-    display: none; /* Hidden initially */
+    display: flex; /* Display buttons as flex to place them next to each other */
     margin-top: 20px;
 }
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px; /* Adjust width as needed */
+}
+
+.button {
+    background-color: #007bff;
+    color: #0f0; /* Neon green text color */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    /* Matrix digital text look */
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0; /* Glow effect */
+    /* Optional: Flickering effect */
+    animation: flicker 1s infinite;
+}
+
+/* Optional: Flickering effect for the buttons */
+@keyframes flicker {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.circle-button {
+    background-color: red;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%; /* Makes the button round */
+    cursor: pointer;
+    /* Optional: Add hover effect */
+}
+
+.circle-button:hover {
+    background-color: darkred;
+}
+
+.game-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px #357a38;
+  }
+
+  .game-button:hover {
+    background-color: #45a049;
+  }
+
+  .game-button:active {
+    background-color: #357a38;
+    box-shadow: 0 2px #357a38;
+    transform: translateY(2px);
+  }
+
+  .left-arrow::before {
+    content: '\2190'; /* Unicode character for left arrow */
+    margin-right: 5px;
+  }
+
+  .right-arrow::after {
+    content: '\2192'; /* Unicode character for right arrow */
+    margin-left: 5px;
+  }
