@@ -195,14 +195,15 @@ function moveShip(e) {
         if (e.code == "KeyR") {
             location.reload();
         } else if (e.code == "KeyH") {
-            window.location.href = "/index"; // Adjust URL as needed
+            window.location.href = "/"; // Adjust URL as needed
         }
         return;
     }
 
 
-    if (e.code == "ArrowLeft" && ship.x - shipVelocityX >= 0) {
+    if ((e.code == "ArrowLeft" && ship.x - shipVelocityX >= 0) )  {
         ship.x -= shipVelocityX; //move left one tile
+
     }
     else if (e.code == "ArrowRight" && ship.x + shipVelocityX + ship.width <= board.width) {
         ship.x += shipVelocityX; //move right one tile
@@ -320,3 +321,31 @@ shipBulletSound.cloneNode(true).play();
 alienBulletSound.cloneNode(true).play();
 
 
+
+function left() {
+    if (ship.x - shipVelocityX >= 0) {
+        ship.x -= shipVelocityX;
+    }
+}
+
+function right() {
+    if (ship.x + shipVelocityX + ship.width <= board.width) {
+        ship.x += shipVelocityX;
+    }
+}
+
+function fire(){
+
+    shipBulletSound.play(); // Add this line to play sound
+    //shoot
+    let bullet = {
+        x : ship.x + shipWidth*15/32,
+        y : ship.y,
+        width : tileSize/8,
+        height : tileSize/2,
+        used : false
+    }
+    bulletArray.push(bullet);
+    
+
+}
