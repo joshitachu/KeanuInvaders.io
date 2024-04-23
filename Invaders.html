@@ -3,21 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Keanu Invaders</title>
 
     <link rel="stylesheet" href="space.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
     <script src="space.js"></script>
+    <style>
+        canvas {
+            touch-action: none;
+            width: 100%;
+            height: 100%;
+        }
+        #fullscreen-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background-color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="Furious Angels (Instrumental).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     
-<audio id="backgroundMusic" autoplay loop>
-    <source src="Furious Angels (Instrumental).mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  
-
     <h1 id="header">Keanu Invaders</h1><br>
     <div id="gameContainer">
         <canvas id="board"></canvas>
@@ -25,25 +41,43 @@
     <div id="gameOverScreen">
         <!-- Game over content will be added dynamically here -->
     </div>
-
-
-
-
+    
     <footer>
         <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
         <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
     </footer>
-
+    
     <div class="button-container">
         <button class="game-button left-arrow" onclick="left()">Left</button>
         <button class="circle-button" onclick="fire()">Fire</button>
         <button class="game-button right-arrow" onclick="right()">Right</button>
-       
-
-    
     </div>
- 
-
     
-</body>
+    <button id="fullscreen-btn" onclick="toggleFullScreen()">Toggle Full-Screen</button>
+    
+    <input type="text" id="address-input" placeholder="Enter Solana address">
+    
+    <div class="fullscreen-buttons">
+        <button onclick="left()">Left</button>
+        <button onclick="fire()">Fire</button>
+        <button onclick="right()">Right</button>
+    </div>
+    
+    <script src="space.js"></script>
+    <script>
+        function toggleFullScreen() {
+            const board = document.getElementById("board");
+            const fullscreenButtons = document.querySelector(".fullscreen-buttons");
+            if (!document.fullscreenElement) {
+                board.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
+                fullscreenButtons.style.display = "block";
+            } else {
+                document.exitFullscreen();
+                fullscreenButtons.style.display = "none";
+            }
+        }
+    </script>
+    </body>
 </html>
