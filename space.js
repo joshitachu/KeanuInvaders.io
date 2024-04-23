@@ -3,6 +3,10 @@ let tileSize = 32;
 let rows = 16;
 let columns = 16;
 
+let touchX = null;
+let touchY = null;
+
+
 let board;
 let boardWidth = tileSize * columns; // 32 * 16
 let boardHeight = tileSize * rows; // 32 * 16
@@ -51,6 +55,7 @@ let score = 0;
 let gameOver = false;
 
 window.onload = function() {
+    
     board = document.getElementById("board");
     board.width = boardWidth;
     board.height = boardHeight;
@@ -76,6 +81,16 @@ window.onload = function() {
     requestAnimationFrame(update);
     document.addEventListener("keydown", moveShip);
     document.addEventListener("keyup", shoot);
+    board.addEventListener('touchstart', handleTouchStart, false);
+    board.addEventListener('touchmove', handleTouchMove, false);
+    board.addEventListener('touchend', handleTouchEnd, false);
+
+    // Enable full-screen mode when the canvas is clicked
+    board.addEventListener('click', toggleFullScreen, false);
+
+    // Start the game loop
+    requestAnimationFrame(update);
+
 }
 
 function update() {
@@ -348,4 +363,47 @@ function fire(){
     bulletArray.push(bullet);
     
 
+}
+
+function handleTouchStart(event) {
+    event.preventDefault();
+    const touch = event.touches[0];
+    touchX = touch.clientX;
+    touchY = touch.clientY;
+}
+
+function handleTouchMove(event) {
+    event.preventDefault();
+    const touch = event.touches[0];
+    touchX = touch.clientX;
+    touchY = touch.clientY;
+}
+
+function handleTouchEnd(event) {
+    event.preventDefault();
+    touchX = null;
+    touchY = null;
+}
+
+// Function to toggle full-screen mode
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        board.requestFullscreen().catch(err => {
+            console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+
+function toggleFullScreen() {
+    const board = document.getElementById("board");
+    if (!document.fullscreenElement) {
+        board.requestFullscreen().catch(err => {
+            console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+    } else {
+        document.exitFullscreen();
+    }
 }
